@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import router from './src/router'
 import bodyParser from 'body-parser'
 const app = express()
+
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 
@@ -15,3 +16,5 @@ app.use('/api', router)
 app.listen(8888, () => {
   console.log('listening on port 8888')
 })
+
+export default app
