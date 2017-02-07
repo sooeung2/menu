@@ -55,6 +55,17 @@ describe('Stores', () => {
 		})
 	})
 
+	it('should GET a store by id', done => {
+		chai.request('http://localhost:8888')
+		.get('/api/stores/' + storeId)
+		.end((err, res) => {
+			res.should.have.status(200)
+			res.body.should.be.a('object')
+			res.body.should.have.property('name');
+			done()
+		})
+	})
+
 	it('should GET all the stores', done => {
 		chai.request('http://localhost:8888')
 		.get('/api/stores')
@@ -100,5 +111,5 @@ describe('Stores', () => {
 			done()
 		})
 	})
-	
+
 })
